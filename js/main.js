@@ -5,12 +5,14 @@ function getData() {
     fetch(`https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json`)
         .then(res => res.json()) // parse response as JSON
         .then(data => {
-            console.log(data)
-            if (data.length > 0) {
+            //console.log(data.filter(function(item){
+            //    return item.district == input;
+            //}))
+            let filtered = data.filter(a => a.district == input)
+            //console.log(filtered)
+            if (filtered.length > 0) {
                 var temp = "";
-                data.forEach((itemData) => {
-                    
-                
+                filtered.forEach((itemData) => {               
                     temp += "<tr>";
                     temp += "<td>" + itemData.disclosure_year + "</td>";
                     temp += "<td>" + itemData.transaction_date + "</td>";
