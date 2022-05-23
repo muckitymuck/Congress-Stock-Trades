@@ -31,17 +31,14 @@
 
 document.querySelector('tableButton').addEventListener('click',getData)
 function getData() {
-    let input = document.querySelector("input").value
-    let select = document.querySelector("select").value
+    let input = document.querySelector("input").value  //Input box
+    let select = document.querySelector("select").value  //Drop Down Menu
     fetch(`https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json`)
         .then(res => res.json()) // parse response as JSON
         .then(data => {
-            //console.log(data.filter(function(item){
-            //    return item.district == input;
-            //}))
-//            let filtered = data.filter(a => a.district == input)
-            let filtered = ''
-            if (input.length <= 3 && select === ""){
+
+            let filtered = ''//Init filtered string
+            if (input.length <= 3 && select === ""){ //return transactions from a Disctrict(via input box) or from a State(via Dropdown)
                 document.getElementById('data').innerHTML = "No Transactions.  Please Enter a District or State."
             }  if (input.length <= 3) {
                 filtered = data.filter(a => a.district.slice(0,2) == select)  
@@ -51,7 +48,7 @@ function getData() {
 
 
             var temp = "";
-            if (filtered.length > 0) {
+            if (filtered.length > 0) {//post relevant information to the Table area
                 var temp = "";
                 filtered.forEach((itemData) => {               
                     temp += "<tr>";
