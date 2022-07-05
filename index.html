@@ -86,12 +86,15 @@
 					<div class="col-4 col-12-narrow">
 						<button type="button" name="tableButton" onclick="getData()">Get Trades Info</button>
 					</div>
+					<div class="col-4 col-12-narrow">
+						<button id="districtDDBtn" type="button" onclick="getDistrictData()">Search by District</button>
+					</div>
 
 				</div>
 				<br/>
 				<div class="row">
 					<div class="col-4 col-12-narrow">
-						<div class="select" tabindex="-1">
+						<div class="selectState" tabindex="-1">
 							<select name="department" id="department">
 								<option value="">Choose a State</option>
 								<option value="AL">AL</option>
@@ -146,8 +149,8 @@
 							</select>
 						</div>
 
-						<div class="select" tabindex="-1" >
-							<select name="selectDistrict" id="selectDistrict">
+						<div class="selectDistrict" tabindex="-1" >
+							<select id="selectDistrictDD" name="selectDistrictDD" id="selectDistrictDD">
 								<option value="">Choose a District</option>
 							</select>
 						</div>
@@ -156,6 +159,7 @@
 					<div class="col-4 col-12-narrow">
 						<button onclick="document.getElementById('department').value =''">Clear</button>
 					</div>
+
 				</div>	
 				<div class="table-wrapper">
 					<table class="default">
