@@ -21,9 +21,6 @@ app.use(logger('dev'))
 app.use('/', homeRoutes)
 
 
-
-
-
 app.listen(process.env.PORT, ()=>{
   console.log('Server is running, you better catch it!')
 })
